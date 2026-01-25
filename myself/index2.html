@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ABOUT ME</title>
+    <link rel="stylesheet" href="images/style1.css">
+</head>
+<body>
+    <h1>ABOUT ME</h1>
+    <div class="nav-hire">
+            <form action="file:///C:/Users/sodhu/Desktop/huucin/sotsuken/myself/index.html"><input type="submit" value="Go back" /></form>
+        </div>
+    <div class="about-text">
+            <p>私は高校を2020年に卒業し、コロナの影響で来日まで1年半のギャップイヤーを過ごしました。</p>
+            <p>2022年に来日し北九州YMCA学院を卒業。その後、日本電子専門学校でAIを2年間学び、さらに深く追求するため現在は東京国際工科専門職大学のAIコースに在籍しています。</p>
+    </div>
+    <div class="myprojects">
+        <h1>My projects</h1>
+
+    </div>
+    <div class="about certifications">
+        <h1>取得した資格</h1>
+        <h2>技術力</h2>
+            <p>ORACLE Java SE11</p>
+            <p>ORACLE Database Bronze</p>
+            <p>Python 基礎試験</p>
+            <p>Python データ分析</p>
+            <p>Python 実践試験</p>
+            <p>G検定</p>
+            <h2>語学力</h2>
+            <p>日本語能力試験 N1</p>
+            <p>TOEIC 900点</p>
+    </div>
+    <div class="experience">
+        <h1>実践経験</h1>
+            <p>現在なし</p>
+    </div>
+    <div class="currently">
+        <h1>現在挑戦していること</h1>
+            <p>1.ORACLE JAVA SE GOLD</p>
+            <p>2.E検定</p>
+    </div>
+    <div class="currently">
+    <h1>My hobby</h1>
+
+    <p>1. Playing piano</p>
+    <p>2. Workout</p>
+    <p>3. PC games: I like to play various kinds of games</p>
+    <p>4. I like to develop my skills</p>
+    <p>5. Photography</p>
+
+    <!-- Photo Slider -->
+    <div class="photo-slider">
+        <button class="nav prev">&#10094;</button>
+
+        <div class="slides">
+            <img src="images/images2/1000000436.png" class="slide active">
+            <img src="images/images2/1000000671.png" class="slide">
+            <img src="images/images2/1000003903.jpg" class="slide">
+            <img src="images/images2/1000005901.jpg" class="slide">
+            <img src="images/images2/1000006141.jpg" class="slide">
+            <img src="images/images2/1000011008.jpg" class="slide">
+        </div>
+
+        <button class="nav next">&#10095;</button>
+    </div>
+</div>
+<script>
+    const slides = document.querySelectorAll(".slide");
+    const nextBtn = document.querySelector(".nav.next");
+    const prevBtn = document.querySelector(".nav.prev");
+    const slider = document.querySelector(".photo-slider");
+
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[index].classList.add("active");
+    }
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    });
+
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    });
+
+    /* Swipe support (mobile) */
+    let startX = 0;
+
+    slider.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener("touchend", e => {
+        let endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        } else if (endX - startX > 50) {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+    });
+</script>
+
+</body>
+</html>
