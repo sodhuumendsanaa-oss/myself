@@ -2,37 +2,127 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Me</title>
-    <link rel="stylesheet" href="images/style2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Mendsanaa</title>
+    <link rel="stylesheet" href="images/images2/contact.css">
 </head>
 <body>
+    <!-- Animated background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Particle background -->
+    <div class="particles-container" id="particlesContainer"></div>
+    
+    <!-- Mouse glow effect -->
+    <div class="mouse-glow" id="mouseGlow"></div>
 
-    <div class="about-text">
-        <h1>To contact me</h1>
+    <div class="container">
+        <!-- Header with navigation -->
+        <header class="header">
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index2.html" class="nav-link">Profile</a>
+                <a href="contactme.html" class="nav-link active">Contact</a>
+            </nav>
+        </header>
 
-        <p><strong>My school email:</strong> tk250265@t.iput.ac.jp</p>
-        <p><strong>My personal email:</strong> mmendsanaa@gmail.com</p>
+        <!-- Main Contact Section -->
+        <main class="contact-container">
+            <!-- Contact Title -->
+            <div class="contact-header">
+                <h1>Get in Touch</h1>
+                <p>Feel free to reach out to me through any of these channels</p>
+            </div>
 
-        <p>
-            <strong>My Facebook:</strong>
-            <a href="https://www.facebook.com/profile.php?id=100008332772285"
-               class="link-button"
-               target="_blank"
-               rel="noopener noreferrer">
-                Go to Facebook
-            </a>
-        </p>
+            <!-- Contact Cards Grid -->
+            <div class="contact-grid">
+                <!-- Email Card -->
+                <div class="contact-card">
+                    <div class="card-icon">✉️</div>
+                    <h3>School Email</h3>
+                    <p class="contact-detail">tk250265@t.iput.ac.jp</p>
+                    <a href="mailto:tk250265@t.iput.ac.jp" class="card-link">Send Email</a>
+                </div>
 
-        <p><strong>Phone number:</strong> 080-3182-4099</p>
-        <p><strong>Address:</strong> Tokyo, Nakano ward, 5-41-8 …</p>
+                <!-- Personal Email Card -->
+                <div class="contact-card">
+                    <div class="card-icon">💌</div>
+                    <h3>Personal Email</h3>
+                    <p class="contact-detail">mmendsanaa@gmail.com</p>
+                    <a href="mailto:mmendsanaa@gmail.com" class="card-link">Send Email</a>
+                </div>
 
-        <p class="note">
-            I am unable to check my email or phone during nighttime.
-        </p>
+                <!-- Phone Card -->
+                <div class="contact-card">
+                    <div class="card-icon">📞</div>
+                    <h3>Phone</h3>
+                    <p class="contact-detail">080-3182-4099</p>
+                    <p class="card-note">※ Daytime only</p>
+                </div>
 
-        <!-- Go back button -->
-        <a href="index.html" class="btn-main">Go back</a>
+                <!-- Location Card -->
+                <div class="contact-card">
+                    <div class="card-icon">📍</div>
+                    <h3>Location</h3>
+                    <p class="contact-detail">Tokyo, Japan</p>
+                    <p class="contact-detail" style="font-size: 0.9rem;">Nakano ward, 5-41-8</p>
+                </div>
+
+                <!-- Facebook Card -->
+                <div class="contact-card">
+                    <div class="card-icon">f</div>
+                    <h3>Facebook</h3>
+                    <p class="contact-detail">Connect on Facebook</p>
+                    <a href="https://www.facebook.com/profile.php?id=100008332772285" class="card-link" target="_blank" rel="noopener noreferrer">Visit Profile</a>
+                </div>
+
+                <!-- Availability Card -->
+                <div class="contact-card">
+                    <div class="card-icon">⏰</div>
+                    <h3>Availability</h3>
+                    <p class="contact-detail">Best to contact during</p>
+                    <p class="contact-detail" style="font-size: 0.9rem;">Daytime Hours (JST)</p>
+                </div>
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="contact-form-section">
+                <h2>Send me a Message</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="quick-links">
+                <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+                <a href="index2.html" class="btn btn-secondary">View Profile →</a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Thank you for reaching out • 2024-2025</p>
+        </footer>
     </div>
 
+    <!-- JavaScript -->
+    <script src="images/images2/contact.js"></script>
 </body>
 </html>

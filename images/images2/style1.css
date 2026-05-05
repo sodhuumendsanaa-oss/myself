@@ -1,0 +1,209 @@
+
+:root {
+    --bg-main: #0f172a;
+    --bg-card: #111827;
+    --text-main: #e5e7eb;
+    --text-sub: #9ca3af;
+    --accent: #38bdf8;
+    --accent-soft: rgba(56, 189, 248, 0.15);
+    --border-soft: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   Body & Layout
+========================= */
+body {
+    font-family: "Inter", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background: radial-gradient(circle at top, #020617, var(--bg-main));
+    color: var(--text-main);
+    line-height: 1.8;
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* =========================
+   Headings
+========================= */
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+    background: linear-gradient(90deg, #e0f2fe, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin: 24px 0 10px;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+}
+
+/* =========================
+   Navigation Button
+========================= */
+.nav-hire {
+    margin: 30px 0 50px;
+}
+
+.nav-hire input[type="submit"] {
+    background: linear-gradient(135deg, #0284c7, var(--accent));
+    color: #020617;
+    border: none;
+    padding: 12px 26px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.35);
+}
+
+.nav-hire input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(56, 189, 248, 0.5);
+}
+
+/* =========================
+   Card Sections
+========================= */
+.about-text,
+.myprojects,
+.about.certifications,
+.experience,
+.currently {
+    background: linear-gradient(
+        180deg,
+        var(--bg-card),
+        rgba(17, 24, 39, 0.9)
+    );
+    border: 1px solid var(--border-soft);
+    padding: 32px;
+    margin-bottom: 40px;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+/* Accent line */
+.about-text::before,
+.myprojects::before,
+.about.certifications::before,
+.experience::before,
+.currently::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--accent), transparent);
+    border-radius: 18px 0 0 18px;
+}
+
+/* =========================
+   Text Styling
+========================= */
+p {
+    font-size: 0.95rem;
+    color: var(--text-sub);
+    margin-bottom: 10px;
+}
+
+/* Certifications list feel */
+.about.certifications p {
+    padding-left: 12px;
+    position: relative;
+}
+
+.about.certifications p::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* =========================
+   Projects Placeholder
+========================= */
+.myprojects h1 {
+    margin-bottom: 12px;
+}
+
+/* =========================
+   Responsive Design
+========================= */
+@media (max-width: 768px) {
+    body {
+        padding: 30px 14px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .about-text,
+    .myprojects,
+    .about.certifications,
+    .experience,
+    .currently {
+        padding: 24px;
+    }
+}
+.photo-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 30px auto 0;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.slides {
+    position: relative;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* Arrows */
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.nav.prev {
+    left: 15px;
+}
+
+.nav.next {
+    right: 15px;
+}

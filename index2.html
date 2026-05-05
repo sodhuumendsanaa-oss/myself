@@ -2,113 +2,205 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ABOUT ME</title>
-    <link rel="stylesheet" href="images/style1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mendsanaa - QR Code Profile</title>
+    <link rel="stylesheet" href="images/images2/profile.css">
 </head>
 <body>
-    <h1>ABOUT ME</h1>
-    <div class="nav-hire">
-            <a href="index.html" class="btn-main">Go back</a>
-        </div>
-    <div class="about-text">
-            <p>私は高校を2020年に卒業し、コロナの影響で来日まで1年半のギャップイヤーを過ごしました。</p>
-            <p>2022年に来日し北九州YMCA学院を卒業。その後、日本電子専門学校でAIを2年間学び、さらに深く追求するため現在は東京国際工科専門職大学のAIコースに在籍しています。</p>
+    <!-- Animated background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Particle background -->
+    <div class="particles-container" id="particlesContainer"></div>
+    
+    <!-- Mouse glow effect -->
+    <div class="mouse-glow" id="mouseGlow"></div>
+
+    <div class="container">
+        <!-- Header with navigation -->
+        <header class="header">
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index2.html" class="nav-link active">Profile</a>
+                <a href="contactme.html" class="nav-link">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Main Profile Section -->
+        <main class="profile-container">
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <!-- Profile Image -->
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img src="images/images2/67950441-0629-4169-934f-af4cf85c234f.jpg" alt="Mendsanaa">
+                        <div class="image-glow"></div>
+                    </div>
+                </div>
+
+                <!-- Profile Info -->
+                <div class="profile-info">
+                    <h1 class="profile-name">Mendsanaa</h1>
+                    <p class="profile-location">📍 From Mongolia, Based in Tokyo</p>
+                    <p class="profile-title">🎓 AI Student | Tech Enthusiast</p>
+                    
+                    <div class="profile-bio">
+                        <p>Currently studying at International Technology University</p>
+                        <p>東京国際工科専門職大学でAIコースに在籍中</p>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100008332772285" class="social-btn" target="_blank" rel="noopener noreferrer">
+                            <span class="social-icon">f</span> Facebook
+                        </a>
+                        <a href="mailto:mmendsanaa@gmail.com" class="social-btn">
+                            <span class="social-icon">✉</span> Email
+                        </a>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="cta-buttons">
+                        <a href="contactme.html" class="btn btn-primary">Contact Me</a>
+                        <a href="index.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="skills-section">
+                <h2>Skills & Interests</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">🤖</div>
+                        <h3>AI & Machine Learning</h3>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">💻</div>
+                        <h3>Web Development</h3>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🌍</div>
+                        <h3>Global Perspective</h3>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🚀</div>
+                        <h3>Innovation</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paiza Coding Profile Section -->
+            <div class="paiza-section">
+                <h2>Paiza Coding Profile</h2>
+                <div class="paiza-card">
+                    <div class="paiza-icon">💻</div>
+                    <h3>Paiza Skills Check</h3>
+                    <p class="paiza-username">@Mendsanaa</p>
+                    <p class="paiza-description">Check my live coding skills and rankings on Paiza</p>
+                    <img src="images/images2/Screenshot 2026-05-05 154652.png" alt="Paiza Rating" class="paiza-rating-image">
+                </div>
+            </div>
+
+            <!-- Certifications & Achievements Section -->
+            <div class="certifications-section">
+                <h2>Certifications & Achievements</h2>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <div class="cert-badge">🐍</div>
+                        <h3>Python 基礎試験</h3>
+                        <p class="cert-field">Python Fundamentals Exam</p>
+                        <p class="cert-description">Core Python programming concepts and fundamentals</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-badge">📊</div>
+                        <h3>Python データ分析試験</h3>
+                        <p class="cert-field">Python Data Analysis Exam</p>
+                        <p class="cert-description">Data analysis techniques using Python libraries</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-badge">⚙️</div>
+                        <h3>Python 実践試験</h3>
+                        <p class="cert-field">Python Practical Exam</p>
+                        <p class="cert-description">Advanced practical Python application development</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-badge">☕</div>
+                        <h3>Java SE11</h3>
+                        <p class="cert-field">Java Standard Edition 11</p>
+                        <p class="cert-description">Java SE 11 professional certification</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-badge">🤖</div>
+                        <h3>AI検定</h3>
+                        <p class="cert-field">AI Certification</p>
+                        <p class="cert-description">Comprehensive AI and machine learning certification</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-badge">🌍</div>
+                        <h3>TOEIC 850</h3>
+                        <p class="cert-field">School-Based</p>
+                        <p class="cert-description">Advanced English proficiency certification</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-badge">🇯🇵</div>
+                        <h3>日本語能力試験 N1</h3>
+                        <p class="cert-field">JLPT Level N1</p>
+                        <p class="cert-description">Highest level Japanese language proficiency</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Timeline -->
+            <div class="education-timeline">
+                <h2>Education Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🎒</div>
+                        <div class="timeline-content">
+                            <h3>2020</h3>
+                            <p>Completed High School Education in Mongolia</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">⏳</div>
+                        <div class="timeline-content">
+                            <h3>2020-2022</h3>
+                            <p>Gap Year - COVID-19 Pandemic Period</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🇯🇵</div>
+                        <div class="timeline-content">
+                            <h3>2022</h3>
+                            <p>Moved to Japan - Kitakyushu YMCA Academy</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">💻</div>
+                        <div class="timeline-content">
+                            <h3>2022-2024</h3>
+                            <p>Japan Electronics College - 2 Year AI Program</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🚀</div>
+                        <div class="timeline-content">
+                            <h3>2024-Present</h3>
+                            <p>International Technology University - AI Specialization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Scan QR Code to View Profile • 2024-2025</p>
+        </footer>
     </div>
-    <div class="myprojects">
-        <h1>My projects</h1>
 
-    </div>
-    <div class="about certifications">
-        <h1>取得した資格</h1>
-        <h2>技術力</h2>
-            <p>ORACLE Java SE11</p>
-            <p>ORACLE Database Bronze</p>
-            <p>Python 基礎試験</p>
-            <p>Python データ分析</p>
-            <p>Python 実践試験</p>
-            <p>G検定</p>
-            <h2>語学力</h2>
-            <p>日本語能力試験 N1</p>
-            <p>TOEIC 900点</p>
-    </div>
-    <div class="experience">
-        <h1>実践経験</h1>
-            <p>現在なし</p>
-    </div>
-    <div class="currently">
-        <h1>現在挑戦していること</h1>
-            <p>1.ORACLE JAVA SE GOLD</p>
-            <p>2.E検定</p>
-    </div>
-    <div class="currently">
-    <h1>My hobby</h1>
-
-    <p>1. Playing piano</p>
-    <p>2. Workout</p>
-    <p>3. PC games: I like to play various kinds of games</p>
-    <p>4. I like to develop my skills</p>
-    <p>5. Photography</p>
-
-    <!-- Photo Slider -->
-    <div class="photo-slider">
-        <button class="nav prev">&#10094;</button>
-
-        <div class="slides">
-            <img src="images/images2/1000000436.png" class="slide active">
-            <img src="images/images2/1000000671.png" class="slide">
-            <img src="images/images2/1000003903.jpg" class="slide">
-            <img src="images/images2/1000005901.jpg" class="slide">
-            <img src="images/images2/1000006141.jpg" class="slide">
-            <img src="images/images2/1000011008.jpg" class="slide">
-        </div>
-
-        <button class="nav next">&#10095;</button>
-    </div>
-</div>
-<script>
-    const slides = document.querySelectorAll(".slide");
-    const nextBtn = document.querySelector(".nav.next");
-    const prevBtn = document.querySelector(".nav.prev");
-    const slider = document.querySelector(".photo-slider");
-
-    let currentIndex = 0;
-
-    function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove("active"));
-        slides[index].classList.add("active");
-    }
-
-    nextBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    });
-
-    prevBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-    });
-
-    /* Swipe support (mobile) */
-    let startX = 0;
-
-    slider.addEventListener("touchstart", e => {
-        startX = e.touches[0].clientX;
-    });
-
-    slider.addEventListener("touchend", e => {
-        let endX = e.changedTouches[0].clientX;
-        if (startX - endX > 50) {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        } else if (endX - startX > 50) {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            showSlide(currentIndex);
-        }
-    });
-</script>
-
+    <!-- JavaScript for interactive effects -->
+    <script src="images/images2/profile.js"></script>
 </body>
 </html>
-
-
-

@@ -2,46 +2,131 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Mendsanaa's Portfolio</title>
-    <link rel="stylesheet" href="images/static.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mendsanaa - Home</title>
+    <link rel="stylesheet" href="images/images2/home.css">
 </head>
 <body>
+    <!-- Animated background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Particle background -->
+    <div class="particles-container" id="particlesContainer"></div>
+    
+    <!-- Mouse glow effect -->
+    <div class="mouse-glow" id="mouseGlow"></div>
 
-    <header class="navbar">
-        <div class="nav-links">
-            <form action="index.html"><input type="submit" value="Home" /></form>
-            <form action="index2.html"><input type="submit" value="About" /></form>
-            <form action="contactme.html"><input type="submit" value="Contact ME" /></form>
-        </div>
-    </header>
+    <div class="container">
+        <!-- Header with navigation -->
+        <header class="header">
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="index2.html" class="nav-link">Profile</a>
+                <a href="contactme.html" class="nav-link">Contact</a>
+            </nav>
+        </header>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1>I am Mendsanaa from Mongolia</h1>
-            <p>Currently studying at International Professional University of Technology in Tokyo</p>
-            <h3>現在は東京国際工科専門職大学で勉強しています。</h3>
-            
-            <form action="index2.html">
-                <input type="submit" value="Learn More" class="btn-main" />
-            </form>
-        </div>
-        <div class="hero-image">
-            <img src="images/67950441-0629-4169-934f-af4cf85c234f.jpg" alt="Mendsanaa's Portrait">
-        </div>
-    </section>
+        <!-- Main Content -->
+        <main class="hero-container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-image-container">
+                    <div class="image-wrapper">
+                        <img src="images/images2/67950441-0629-4169-934f-af4cf85c234f.jpg" alt="Mendsanaa">
+                        <div class="image-glow"></div>
+                    </div>
+                </div>
 
-    <section class="about-section">
-        <h2>About me</h2>
-        <h5>Developing With a Passion While Exploring The World.</h5>
-        <div class="about-text">
-            <p>私は高校を2020年に卒業し、コロナの影響で来日まで1年半のギャップイヤーを過ごしました。</p>
-            <p>2022年に来日し北九州YMCA学院を卒業。その後、日本電子専門学校でAIを2年間学び、さらに深く追求するため現在は東京国際工科専門職大学のAIコースに在籍しています。</p>
-        </div>
-        <form action="contactme.html">
-            <input type="submit" value="Contact me" class="btn-sub" />
-        </form>
-    </section>
+                <div class="hero-content">
+                    <h1 class="hero-title">Mendsanaa</h1>
+                    <p class="hero-subtitle">From Mongolia 🇲🇳 Based in Tokyo 🇯🇵</p>
+                    
+                    <div class="hero-description">
+                        <p>I am currently studying AI at International Technology University in Tokyo</p>
+                        <p>東京国際工科専門職大学のAIコースに在籍しています。</p>
+                    </div>
 
+                    <div class="hero-buttons">
+                        <a href="index2.html" class="btn btn-primary">View My Profile</a>
+                        <a href="contactme.html" class="btn btn-secondary">Get in Touch</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about-section">
+                <h2>About Me</h2>
+                <p class="section-subtitle">Developing With a Passion While Exploring The World</p>
+
+                <div class="about-content">
+                    <div class="about-card">
+                        <div class="about-icon">🎒</div>
+                        <h3>Journey Started</h3>
+                        <p>2020年に高校を卒業し、1年半のギャップイヤーを過ごしました。コロナ禍の影響でしたが、その時間を有意義に過ごしました。</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-icon">🌏</div>
+                        <h3>Came to Japan</h3>
+                        <p>2022年に来日し、北九州YMCA学院で言語と文化を学びました。日本での生活は新しい視点をもたらしました。</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-icon">💻</div>
+                        <h3>Studied AI</h3>
+                        <p>日本電子専門学校でAIについて2年間集中的に学びました。プログラミングと機械学習の基礎を習得しました。</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-icon">🚀</div>
+                        <h3>Pursuing Excellence</h3>
+                        <p>現在、東京国際工科専門職大学のAIコースに在籍し、さらに深い知識を追求しています。</p>
+                    </div>
+                </div>
+
+                <div class="full-bio">
+                    <p>私は高校を2020年に卒業し、コロナの影響で来日まで1年半のギャップイヤーを過ごしました。2022年に来日し北九州YMCA学院を卒業。その後、日本電子専門学校でAIを2年間学び、さらに深く追求するため現在は東京国際工科専門職大学のAIコースに在籍しています。</p>
+                </div>
+            </section>
+
+            <!-- Highlights Section -->
+            <section class="highlights-section">
+                <h2>Highlights</h2>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <div class="highlight-number">2020</div>
+                        <p>High School Graduate</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-number">2022</div>
+                        <p>Moved to Japan</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-number">2024</div>
+                        <p>AI Specialist</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-number">∞</div>
+                        <p>Keep Learning</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <h2>Ready to Know More?</h2>
+                <p>Explore my portfolio and certifications</p>
+                <a href="index2.html" class="btn btn-primary btn-large">Visit My Profile</a>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Welcome to my digital portfolio • 2024-2025</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for interactive effects -->
+    <script src="images/images2/home.js"></script>
 </body>
-
 </html>
