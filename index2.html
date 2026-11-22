@@ -1,226 +1,285 @@
-0<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mendsanaa - QR Code Profile</title>
-    <link rel="stylesheet" href="images/images2/profile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#16213e">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2316213e'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='34' fill='%2364c8ff'%3EM%3C/text%3E%3C/svg%3E">
+    <title>Mendsanaa - プロフィール</title>
+    <script>
+        if (!sessionStorage.getItem('mendsanaa_boot_done') || location.search.indexOf('intro=1') !== -1) {
+            document.documentElement.classList.add('boot-active');
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="images/images2/styles.css">
 </head>
-<body>
-    <!-- Animated background -->
-    <div class="animated-bg"></div>
-    
-    <!-- Particle background -->
-    <div class="particles-container" id="particlesContainer"></div>
-    
-    <!-- Mouse glow effect -->
-    <div class="mouse-glow" id="mouseGlow"></div>
+<body data-page="profile">
+    <!-- Animated Gradient Background -->
+    <div class="animated-bg" aria-hidden="true"></div>
+    <canvas class="particles-canvas" id="particlesCanvas" aria-hidden="true"></canvas>
+    <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
 
-    <div class="container">
-        <!-- Header with navigation -->
-        <header class="header">
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index2.html" class="nav-link active">Profile</a>
-                <a href="contactme.html" class="nav-link">Contact</a>
-            </nav>
+    <div class="page-shell">
+        <!-- Clean Sticky Header -->
+        <header class="top-bar">
+            <div class="top-bar-inner">
+                <nav class="desktop-nav" aria-label="Main navigation">
+                    <a href="index.html" data-i18n="nav_home">ホーム</a>
+                    <a href="index2.html" class="active" data-i18n="nav_profile">プロフィール</a>
+                    <a href="contactme.html" data-i18n="nav_contact">お問い合わせ</a>
+                </nav>
+
+                <div class="lang-switcher" role="group" aria-label="Language switcher">
+                    <button type="button" class="lang-btn active" data-lang="ja" aria-pressed="true">JP</button>
+                    <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+                    <button type="button" class="lang-btn" data-lang="mn" aria-pressed="false">MN</button>
+                </div>
+            </div>
         </header>
 
-        <!-- Main Profile Section -->
-        <main class="profile-container">
-            <!-- Profile Card -->
-            <div class="profile-card">
-                <!-- Profile Image -->
-                <div class="image-container">
-                    <div class="image-wrapper">
-                        <img src="images/images2/67950441-0629-4169-934f-af4cf85c234f.jpg" alt="Mendsanaa">
-                        <div class="image-glow"></div>
+        <!-- Main Profile Content -->
+        <main class="main-content">
+            <!-- Profile Hero Card -->
+            <section class="glass-card hero-card reveal is-in">
+                <div class="avatar-stage">
+                    <div class="avatar-glow"></div>
+                    <div class="avatar-frame">
+                        <img src="images/images2/profile.jpg" alt="Mendsanaa">
                     </div>
                 </div>
 
-                <!-- Profile Info -->
-                <div class="profile-info">
-                    <h1 class="profile-name">Mendsanaa</h1>
-                    <p class="profile-location">📍 From Mongolia, Based in Tokyo</p>
-                    <p class="profile-title">🎓 AI Student | Tech Enthusiast</p>
-                    
-                    <div class="profile-bio">
-                        <p>Currently studying at International Technology University</p>
-                        <p>東京国際工科専門職大学でAIコースに在籍中</p>
+                <div class="hero-text">
+                    <h1 class="hero-title">Mendsanaa</h1>
+                    <p class="hero-subtitle" data-i18n="prof_location">📍 モンゴル出身 ・ 東京在住</p>
+                    <div class="hero-role-pill" data-i18n="prof_role">🎓 AI専攻学生 | テクノロジー愛好家</div>
+
+                    <div class="hero-bio-box">
+                        <p data-i18n="prof_bio_1">東京国際工科専門職大学（IPUT）のAIコースに在籍中。</p>
+                        <p data-i18n="prof_bio_2">機械学習、クラウド、開発技術を日々磨いています。</p>
                     </div>
 
-                    <!-- Social Links -->
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=100008332772285" class="social-btn" target="_blank" rel="noopener noreferrer">
-                            <span class="social-icon">f</span> Facebook
+                    <div class="social-pills">
+                        <a href="https://www.facebook.com/profile.php?id=100008332772285" class="social-pill" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+                            <span>Facebook</span>
                         </a>
-                        <a href="mailto:mmendsanaa@gmail.com" class="social-btn">
-                            <span class="social-icon">✉</span> Email
+                        <a href="https://github.com/sodhuumendsanaa-oss" class="social-pill" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.87 8.39 6.84 9.75.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.72-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.59.69.49A10.22 10.22 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="mailto:mmendsanaa@gmail.com" class="social-pill">
+                            <svg viewBox="0 0 24 24"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm8 7 8-5H4l8 5z"/></svg>
+                            <span data-i18n="prof_email_label">メール</span>
                         </a>
                     </div>
 
-                    <!-- CTA Buttons -->
-                    <div class="cta-buttons">
-                        <a href="contactme.html" class="btn btn-primary">Contact Me</a>
-                        <a href="index.html" class="btn btn-secondary">Learn More</a>
+                    <div class="action-row">
+                        <a href="contactme.html" class="btn btn-primary" data-i18n="prof_btn_contact">お問い合わせ</a>
+                        <a href="index.html" class="btn btn-secondary" data-i18n="prof_btn_home">詳しく見る</a>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- Skills Section -->
-            <div class="skills-section">
-                <h2>Skills & Interests</h2>
+            <section class="section-block reveal">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="prof_skills_title">スキル・関心分野</h2>
+                </div>
                 <div class="skills-grid">
-                    <div class="skill-card">
+                    <div class="glass-card skill-card">
                         <div class="skill-icon">🤖</div>
-                        <h3>AI & Machine Learning</h3>
+                        <h3 data-i18n="prof_skill_1">AI・機械学習</h3>
                     </div>
-                    <div class="skill-card">
+                    <div class="glass-card skill-card">
                         <div class="skill-icon">💻</div>
-                        <h3>Web Development</h3>
+                        <h3 data-i18n="prof_skill_2">Web開発</h3>
                     </div>
-                    <div class="skill-card">
+                    <div class="glass-card skill-card">
                         <div class="skill-icon">🌍</div>
-                        <h3>Global Perspective</h3>
+                        <h3 data-i18n="prof_skill_3">グローバル視点</h3>
                     </div>
-                    <div class="skill-card">
+                    <div class="glass-card skill-card">
                         <div class="skill-icon">🚀</div>
-                        <h3>Innovation</h3>
+                        <h3 data-i18n="prof_skill_4">イノベーション</h3>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Paiza Coding Profile Section -->
-            <div class="paiza-section">
-                <h2>Paiza Coding Profile</h2>
-                <div class="paiza-card">
-                    <div class="paiza-icon">💻</div>
-                    <h3>Paiza Skills Check</h3>
-                    <p class="paiza-username">@Mendsanaa</p>
-                    <p class="paiza-description">Check my live coding skills and rankings on Paiza</p>
-                    <img src="images/images2/Screenshot 2026-05-05 154652.png" alt="Paiza Rating" class="paiza-rating-image">
+            <!-- Certifications Section (Logo + Exam Name) -->
+            <section class="section-block reveal">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="prof_certs_title">取得資格・検定</h2>
                 </div>
-            </div>
+                <div class="certs-grid">
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/aws-saa.png" data-lightbox-alt="AWS Solutions Architect Associate">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/aws-saa.png" alt="AWS Solutions Architect Associate" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_1">AWS Solutions Architect Associate</span>
+                    </button>
 
-            <!-- Certifications & Achievements Section -->
-            <div class="certifications-section">
-                <h2>Certifications & Achievements</h2>
-                <div class="certifications-grid">
-                    <div class="cert-card">
-                        <div class="cert-badge">🐍</div>
-                        <h3>Python 基礎試験</h3>
-                        <p class="cert-field">Python Fundamentals Exam</p>
-                        <p class="cert-description">Core Python programming concepts and fundamentals</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-badge">📊</div>
-                        <h3>Python データ分析試験</h3>
-                        <p class="cert-field">Python Data Analysis Exam</p>
-                        <p class="cert-description">Data analysis techniques using Python libraries</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-badge">⚙️</div>
-                        <h3>Python 実践試験</h3>
-                        <p class="cert-field">Python Practical Exam</p>
-                        <p class="cert-description">Advanced practical Python application development</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-badge">☕</div>
-                        <h3>Java SE11</h3>
-                        <p class="cert-field">Java Standard Edition 11</p>
-                        <p class="cert-description">Java SE 11 professional certification</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-badge">🤖</div>
-                        <h3>AI検定</h3>
-                        <p class="cert-field">AI Certification</p>
-                        <p class="cert-description">Comprehensive AI and machine learning certification</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-badge">🌍</div>
-                        <h3>TOEIC 850</h3>
-                        <p class="cert-field">School-Based</p>
-                        <p class="cert-description">Advanced English proficiency certification</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-badge">🇯🇵</div>
-                        <h3>日本語能力試験 N1</h3>
-                        <p class="cert-field">JLPT Level N1</p>
-                        <p class="cert-description">Highest level Japanese language proficiency</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-badge">😶‍🌫️</div>
-                        <h3>AWS Cloud Practioner</h3>
-                        <p class="cert-field">Cloud fundenmental</p>
-                        <p class="cert-description">Core AWS cloud service knowledge</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-badge">SAA</div>
-                        <h3>AWS Solution Architect Associate</h3>
-                        <p class="cert-field">Cloud architecht</p>
-                        <p class="cert-description">AWS implementing cloud solutions on AWS, including system architecture, 
-                            security, scalability, and cost optimization.</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-badge">Github</div>
-                        <h3>Github Foundation</h3>
-                        <p class="cert-field">900</p>
-                        <p class="cert-description">Github reposetory manage,create and
-                            workflow</p>
-                    </div>
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/aws-ccp.png" data-lightbox-alt="AWS Cloud Practitioner">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/aws-ccp.png" alt="AWS Cloud Practitioner" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_2">AWS Cloud Practitioner</span>
+                    </button>
+
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/java-silver.png" data-lightbox-alt="Java SE 11 Silver">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/java-silver.png" alt="Java SE 11 Silver" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_3">Java SE 11 Silver</span>
+                    </button>
+
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/github-foundations.png" data-lightbox-alt="GitHub Foundations">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/github-foundations.png" alt="GitHub Foundations" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_4">GitHub Foundations</span>
+                    </button>
+
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/python-ce.png" data-lightbox-alt="Python 3 基礎試験">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/python-ce.png" alt="Python 3 基礎試験" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_5">Python 3 基礎試験</span>
+                    </button>
+
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/python-cda.png" data-lightbox-alt="Python データ分析試験">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/python-cda.png" alt="Python データ分析試験" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_6">Python データ分析試験</span>
+                    </button>
+
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/python-cpe.png" data-lightbox-alt="Python 実践試験">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/python-cpe.png" alt="Python 実践試験" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_7">Python 実践試験</span>
+                    </button>
+
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/gemini.png" data-lightbox-alt="Google Gemini 認定">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/gemini.png" alt="Google Gemini 認定" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_8">Google Gemini 認定</span>
+                    </button>
+
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/ai-kentei.png" data-lightbox-alt="AI検定">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/ai-kentei.png" alt="AI検定" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_9">AI検定</span>
+                    </button>
+
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/jlpt-n1.png" data-lightbox-alt="日本語能力試験 N1">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/jlpt-n1.png" alt="日本語能力試験 N1" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_10">日本語能力試験 N1</span>
+                    </button>
+
+                    <button type="button" class="cert-tile" data-lightbox-src="images/certs/toeic.png" data-lightbox-alt="TOEIC 850">
+                        <div class="cert-tile-inner">
+                            <img src="images/certs/toeic.png" alt="TOEIC 850" loading="lazy">
+                        </div>
+                        <span class="cert-name" data-i18n="cert_11">TOEIC 850</span>
+                    </button>
                 </div>
-            </div>
+            </section>
 
             <!-- Education Timeline -->
-            <div class="education-timeline">
-                <h2>Education Journey</h2>
+            <section class="section-block reveal">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="prof_edu_title">学歴・歩み</h2>
+                </div>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-marker">🎒</div>
-                        <div class="timeline-content">
-                            <h3>2020</h3>
-                            <p>Completed High School Education in Mongolia</p>
+                        <span class="timeline-node" aria-hidden="true"></span>
+                        <div class="glass-card timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-emoji">🎒</span>
+                                <span class="timeline-year" data-i18n="prof_edu_1_year">2020</span>
+                            </div>
+                            <p data-i18n="prof_edu_1_text">モンゴルの高校を卒業</p>
                         </div>
                     </div>
+
                     <div class="timeline-item">
-                        <div class="timeline-marker">⏳</div>
-                        <div class="timeline-content">
-                            <h3>2020-2022</h3>
-                            <p>Gap Year - COVID-19 Pandemic Period</p>
+                        <span class="timeline-node" aria-hidden="true"></span>
+                        <div class="glass-card timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-emoji">⏳</span>
+                                <span class="timeline-year" data-i18n="prof_edu_2_year">2020 – 2022</span>
+                            </div>
+                            <p data-i18n="prof_edu_2_text">ギャップイヤー（コロナ禍での自己研鑽期間）</p>
                         </div>
                     </div>
+
                     <div class="timeline-item">
-                        <div class="timeline-marker">🇯🇵</div>
-                        <div class="timeline-content">
-                            <h3>2022</h3>
-                            <p>Moved to Japan - Kitakyushu YMCA Academy</p>
+                        <span class="timeline-node" aria-hidden="true"></span>
+                        <div class="glass-card timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-emoji">🇯🇵</span>
+                                <span class="timeline-year" data-i18n="prof_edu_3_year">2022</span>
+                            </div>
+                            <p data-i18n="prof_edu_3_text">来日・北九州YMCA学院にて日本語を習得</p>
                         </div>
                     </div>
+
                     <div class="timeline-item">
-                        <div class="timeline-marker">💻</div>
-                        <div class="timeline-content">
-                            <h3>2022-2024</h3>
-                            <p>Japan Electronics College - 2 Year AI Program</p>
+                        <span class="timeline-node" aria-hidden="true"></span>
+                        <div class="glass-card timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-emoji">💻</span>
+                                <span class="timeline-year" data-i18n="prof_edu_4_year">2022 – 2024</span>
+                            </div>
+                            <p data-i18n="prof_edu_4_text">日本電子専門学校 — AIシステム科（2年課程）</p>
                         </div>
                     </div>
+
                     <div class="timeline-item">
-                        <div class="timeline-marker">🚀</div>
-                        <div class="timeline-content">
-                            <h3>2024-Present</h3>
-                            <p>International Technology University - AI Specialization</p>
+                        <span class="timeline-node" aria-hidden="true"></span>
+                        <div class="glass-card timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-emoji">🚀</span>
+                                <span class="timeline-year" data-i18n="prof_edu_5_year">2024 – 現在</span>
+                            </div>
+                            <p data-i18n="prof_edu_5_text">東京国際工科専門職大学 — AIコース在籍</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </main>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>Scan QR Code to View Profile • 2024-2025</p>
+            <p data-i18n="prof_footer">QRコード デジタルプロフィール • 2024-2026</p>
+            <button type="button" class="replay-intro-btn">↻ <span data-i18n="replay_intro">起動演出を再生</span></button>
         </footer>
     </div>
 
-    <!-- JavaScript for interactive effects -->
-    <script src="images/images2/profile.js"></script>
+    <!-- Smartphone Bottom Navigation Dock -->
+    <nav class="mobile-dock" aria-label="Mobile navigation">
+        <a href="index.html" class="dock-item">
+            <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></svg>
+            <span data-i18n="nav_home">ホーム</span>
+        </a>
+        <a href="index2.html" class="dock-item active">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <span data-i18n="nav_profile">プロフィール</span>
+        </a>
+        <a href="contactme.html" class="dock-item">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <span data-i18n="nav_contact">お問い合わせ</span>
+        </a>
+    </nav>
+
+    <script src="images/images2/app.js"></script>
 </body>
 </html>

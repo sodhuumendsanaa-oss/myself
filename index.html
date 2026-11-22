@@ -2,131 +2,178 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mendsanaa - Home</title>
-    <link rel="stylesheet" href="images/images2/home.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#16213e">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2316213e'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='34' fill='%2364c8ff'%3EM%3C/text%3E%3C/svg%3E">
+    <title>Mendsanaa - ホーム</title>
+    <script>
+        if (!sessionStorage.getItem('mendsanaa_boot_done') || location.search.indexOf('intro=1') !== -1) {
+            document.documentElement.classList.add('boot-active');
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="images/images2/styles.css">
 </head>
-<body>
-    <!-- Animated background -->
-    <div class="animated-bg"></div>
-    
-    <!-- Particle background -->
-    <div class="particles-container" id="particlesContainer"></div>
-    
-    <!-- Mouse glow effect -->
-    <div class="mouse-glow" id="mouseGlow"></div>
+<body data-page="home">
+    <!-- Animated Gradient Background -->
+    <div class="animated-bg" aria-hidden="true"></div>
+    <canvas class="particles-canvas" id="particlesCanvas" aria-hidden="true"></canvas>
+    <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
 
-    <div class="container">
-        <!-- Header with navigation -->
-        <header class="header">
-            <nav class="nav">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="index2.html" class="nav-link">Profile</a>
-                <a href="contactme.html" class="nav-link">Contact</a>
-            </nav>
+    <div class="page-shell">
+        <!-- Clean Sticky Header -->
+        <header class="top-bar">
+            <div class="top-bar-inner">
+                <nav class="desktop-nav" aria-label="Main navigation">
+                    <a href="index.html" class="active" data-i18n="nav_home">ホーム</a>
+                    <a href="index2.html" data-i18n="nav_profile">プロフィール</a>
+                    <a href="contactme.html" data-i18n="nav_contact">お問い合わせ</a>
+                </nav>
+
+                <div class="lang-switcher" role="group" aria-label="Language switcher">
+                    <button type="button" class="lang-btn active" data-lang="ja" aria-pressed="true">JP</button>
+                    <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+                    <button type="button" class="lang-btn" data-lang="mn" aria-pressed="false">MN</button>
+                </div>
+            </div>
         </header>
 
         <!-- Main Content -->
-        <main class="hero-container">
-            <!-- Hero Section -->
-            <section class="hero-section">
-                <div class="hero-image-container">
-                    <div class="image-wrapper">
-                        <img src="images/images2/67950441-0629-4169-934f-af4cf85c234f.jpg" alt="Mendsanaa">
-                        <div class="image-glow"></div>
+        <main class="main-content">
+            <!-- Hero Card -->
+            <section class="glass-card hero-card reveal is-in">
+                <div class="avatar-stage">
+                    <div class="avatar-glow"></div>
+                    <div class="avatar-frame">
+                        <img src="images/images2/profile.jpg" alt="Mendsanaa">
                     </div>
                 </div>
 
-                <div class="hero-content">
+                <div class="hero-text">
                     <h1 class="hero-title">Mendsanaa</h1>
-                    <p class="hero-subtitle">From Mongolia 🇲🇳 Based in Tokyo 🇯🇵</p>
-                    
-                    <div class="hero-description">
-                        <p>I am currently studying AI at International Technology University in Tokyo</p>
-                        <p>東京国際工科専門職大学のAIコースに在籍しています。</p>
+                    <p class="hero-subtitle" data-i18n="home_subtitle">モンゴル出身 🇲🇳 ・ 東京在住 🇯🇵</p>
+                    <div class="hero-role-pill" data-i18n="home_role">東京国際工科専門職大学 AIコース在籍</div>
+
+                    <div class="hero-bio-box">
+                        <p data-i18n="home_desc_1">東京国際工科専門職大学のAIコースに在籍しています。</p>
+                        <p data-i18n="home_desc_2">AI・クラウド・ソフトウェア開発を中心に、世界とつながる技術を日々学んでいます。</p>
                     </div>
 
-                    <div class="hero-buttons">
-                        <a href="index2.html" class="btn btn-primary">View My Profile</a>
-                        <a href="contactme.html" class="btn btn-secondary">Get in Touch</a>
+                    <div class="action-row">
+                        <a href="index2.html" class="btn btn-primary" data-i18n="home_btn_profile">プロフィールを見る</a>
+                        <a href="contactme.html" class="btn btn-secondary" data-i18n="home_btn_contact">お問い合わせ</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Highlights -->
+            <section class="section-block reveal">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="home_hl_title">ハイライト</h2>
+                </div>
+                <div class="stats-grid">
+                    <div class="glass-card stat-card">
+                        <div class="stat-value">2020</div>
+                        <p class="stat-label" data-i18n="home_hl_1">高校卒業</p>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-value">2022</div>
+                        <p class="stat-label" data-i18n="home_hl_2">来日・留学開始</p>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-value">2024</div>
+                        <p class="stat-label" data-i18n="home_hl_3">AI専門課程修了</p>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-value">∞</div>
+                        <p class="stat-label" data-i18n="home_hl_4">学び続ける姿勢</p>
                     </div>
                 </div>
             </section>
 
             <!-- About Section -->
-            <section class="about-section">
-                <h2>About Me</h2>
-                <p class="section-subtitle">Developing With a Passion While Exploring The World</p>
-
-                <div class="about-content">
-                    <div class="about-card">
-                        <div class="about-icon">🎒</div>
-                        <h3>Journey Started</h3>
-                        <p>2020年に高校を卒業し、1年半のギャップイヤーを過ごしました。コロナ禍の影響でしたが、その時間を有意義に過ごしました。</p>
-                    </div>
-
-                    <div class="about-card">
-                        <div class="about-icon">🌏</div>
-                        <h3>Came to Japan</h3>
-                        <p>2022年に来日し、北九州YMCA学院で言語と文化を学びました。日本での生活は新しい視点をもたらしました。</p>
-                    </div>
-
-                    <div class="about-card">
-                        <div class="about-icon">💻</div>
-                        <h3>Studied AI</h3>
-                        <p>日本電子専門学校でAIについて2年間集中的に学びました。プログラミングと機械学習の基礎を習得しました。</p>
-                    </div>
-
-                    <div class="about-card">
-                        <div class="about-icon">🚀</div>
-                        <h3>Pursuing Excellence</h3>
-                        <p>現在、東京国際工科専門職大学のAIコースに在籍し、さらに深い知識を追求しています。</p>
-                    </div>
+            <section class="section-block reveal">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="home_about_title">私について</h2>
+                    <p class="section-subtitle" data-i18n="home_about_sub">世界を巡りながら、情熱を持って学び・創る</p>
                 </div>
 
-                <div class="full-bio">
-                    <p>私は高校を2020年に卒業し、コロナの影響で来日まで1年半のギャップイヤーを過ごしました。2022年に来日し北九州YMCA学院を卒業。その後、日本電子専門学校でAIを2年間学び、さらに深く追求するため現在は東京国際工科専門職大学のAIコースに在籍しています。</p>
-                </div>
-            </section>
+                <div class="story-grid">
+                    <article class="glass-card story-card">
+                        <div class="story-top">
+                            <div class="story-icon-wrap">🎒</div>
+                            <span class="story-year">2020</span>
+                        </div>
+                        <h3 data-i18n="home_story_1_title">旅の始まり</h3>
+                        <p data-i18n="home_story_1_text">2020年に高校を卒業し、コロナ禍の影響で1年半のギャップイヤーを過ごしました。その期間を有意義に活かし、次の一歩へ向けて準備しました。</p>
+                    </article>
 
-            <!-- Highlights Section -->
-            <section class="highlights-section">
-                <h2>Highlights</h2>
-                <div class="highlights-grid">
-                    <div class="highlight-card">
-                        <div class="highlight-number">2020</div>
-                        <p>High School Graduate</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-number">2022</div>
-                        <p>Moved to Japan</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-number">2024</div>
-                        <p>AI Specialist</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-number">∞</div>
-                        <p>Keep Learning</p>
-                    </div>
+                    <article class="glass-card story-card">
+                        <div class="story-top">
+                            <div class="story-icon-wrap">🌏</div>
+                            <span class="story-year">2022</span>
+                        </div>
+                        <h3 data-i18n="home_story_2_title">日本への挑戦</h3>
+                        <p data-i18n="home_story_2_text">2022年に来日し、北九州YMCA学院で日本語と文化を学びました。日本での生活は新しい視点と大きな成長をもたらしてくれました。</p>
+                    </article>
+
+                    <article class="glass-card story-card">
+                        <div class="story-top">
+                            <div class="story-icon-wrap">💻</div>
+                            <span class="story-year">2022–2024</span>
+                        </div>
+                        <h3 data-i18n="home_story_3_title">AIを集中的に習得</h3>
+                        <p data-i18n="home_story_3_text">日本電子専門学校でAIについて2年間集中的に学び、プログラミングと機械学習の基礎・実践スキルを習得しました。</p>
+                    </article>
+
+                    <article class="glass-card story-card">
+                        <div class="story-top">
+                            <div class="story-icon-wrap">🚀</div>
+                            <span class="story-year">2024–NOW</span>
+                        </div>
+                        <h3 data-i18n="home_story_4_title">さらなる高みへ</h3>
+                        <p data-i18n="home_story_4_text">現在、東京国際工科専門職大学のAIコースに在籍し、より高度なAI技術とクラウド・開発力を追求しています。</p>
+                    </article>
+                </div>
+
+                <div class="glass-card full-bio-card">
+                    <p data-i18n="home_full_bio">私は2020年にモンゴルの高校を卒業し、コロナの影響で来日まで1年半のギャップイヤーを過ごしました。2022年に来日して北九州YMCA学院を卒業後、日本電子専門学校でAIを2年間学び、さらに深く追求するため現在は東京国際工科専門職大学のAIコースに在籍しています。</p>
                 </div>
             </section>
 
-            <!-- CTA Section -->
-            <section class="cta-section">
-                <h2>Ready to Know More?</h2>
-                <p>Explore my portfolio and certifications</p>
-                <a href="index2.html" class="btn btn-primary btn-large">Visit My Profile</a>
+            <!-- CTA Banner -->
+            <section class="glass-card cta-banner reveal">
+                <h2 data-i18n="home_cta_title">もっと詳しく知る</h2>
+                <p data-i18n="home_cta_sub">スキル・取得資格・これまでの歩みをご覧ください</p>
+                <a href="index2.html" class="btn btn-primary" data-i18n="home_cta_btn">プロフィールへ進む</a>
             </section>
         </main>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>Welcome to my digital portfolio • 2024-2025</p>
+            <p data-i18n="home_footer">Mendsanaa デジタルポートフォリオ • 2024-2026</p>
+            <button type="button" class="replay-intro-btn">↻ <span data-i18n="replay_intro">起動演出を再生</span></button>
         </footer>
     </div>
 
-    <!-- JavaScript for interactive effects -->
-    <script src="images/images2/home.js"></script>
+    <!-- Smartphone Bottom Navigation Dock -->
+    <nav class="mobile-dock" aria-label="Mobile navigation">
+        <a href="index.html" class="dock-item active">
+            <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></svg>
+            <span data-i18n="nav_home">ホーム</span>
+        </a>
+        <a href="index2.html" class="dock-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <span data-i18n="nav_profile">プロフィール</span>
+        </a>
+        <a href="contactme.html" class="dock-item">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <span data-i18n="nav_contact">お問い合わせ</span>
+        </a>
+    </nav>
+
+    <script src="images/images2/app.js"></script>
 </body>
 </html>
